@@ -31,8 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
             <div class="col-lg-12">
                 <div class='list-group'>
-                    <?= Html::a("<h4>Database structure</h4><p>SQL instructions for creating the calendar database</p>", array('site/php-yii', 'page'=>'database-structure'), array('class'=>'list-group-item')); ?>
-                    <?= Html::a("<h4>User authentication</h4><p>User authentication with Yii2 Framework and MySQL database</p>", array('site/php-yii', 'page'=>'user-authentication'), array('class'=>'list-group-item')); ?>
+                    <?= Html::a("<h4>Setting up the environment</h4><p>Setting up the development environment and creating the project</p>", array('site/php-yii', 'page'=>'environment'), array('class'=>'list-group-item')); ?>
+                    <?= Html::a("<h4>Starting the new project</h4><p>Starting a new Yii2 basic template project</p>", array('site/php-yii', 'page'=>'project-start'), array('class'=>'list-group-item')); ?>
+                    <?= Html::a("<h4>Configuring Codeception</h4><p>Codeception initial configuration for our tests</p>", array('site/php-yii', 'page'=>'codecept-setup'), array('class'=>'list-group-item')); ?>
+                    <?= Html::a("<h4>Changing Bootstrap default styles</h4><p>Some changes to the default Bootstrap style</p>", array('site/php-yii', 'page'=>'bootstrap-styles'), array('class'=>'list-group-item')); ?>
+                    <?= Html::a("<h4>Changing the user authentication</h4><p>User authentication with Yii2 Framework and MySQL database</p>", array('site/php-yii', 'page'=>'user-authentication'), array('class'=>'list-group-item')); ?>
                 </div>
             </div>
         </div>
