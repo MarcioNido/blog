@@ -19,23 +19,57 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
             <div class="col-lg-12">
                 
-                <h2>User Model</h2>
-                <p>This model was created using gii, the yii code generator tool. Then added the \yii\web\IdentityInterface implementation.</p>
+                <h2>User Authentication</h2>
+                <p>Yii2 basic template comes with a simple user authentication that uses an array of users inside User model class. So, we will change it to authenticate users using the database.</p>
 
-<pre>
-<code class="language-php">
+                <p>First, let's create the user model class using Gii, the Yii2 code generator. If it's not configured yet, you will have to edit @app/config/web.php file to add the gii component like this:</p>
+                <pre>
+<code class='php'>
+if (YII_ENV_DEV) {
+    // configuration adjustments for 'dev' environment
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+    ];
+
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+        'allowedIPs' => ['192.168.83.*'], // adjust to your client machine IP
+    ];
+}                        
+</code>
+                </pre>
+                
+                <p>Now, open the browser in your client machine and access gii at: http://apps.dev/basic-calendar/web/index.php?r=gii</p>
+                <p>You should see the generator page like this:</p>
+                <div class='thumbnail'>
+                    <img class='img-responsive' src="images/ss-gii.png" />
+                </div>
+                
+                <p>What we want now is the Model Generator, so select this option, fill the Table Name field with "user" and keep the default options for the rest of the form. Click Preview. There is already the old User model, so we have to check the "overwrite" box for it to replace the old model class with the new one:</p>
+                <div class='thumbnail'>
+                    <img class='img-responsive' src="images/ss-gii-overwrite.png" />
+                </div>
+                
+                <p>Now we have the user model which extends from \yii\db\ActiveRecord class. But it won't authenticate the users, because to do so, the class must implement the \yii\web\IdentityInterface class. For this we will have to change the generated class and add the methods. </p>
+                <p>In the end our user model class will look like this:</p>
+                <pre>
+<code class='php'>
+&lt;?php
+
 namespace app\models;
 
 use Yii;
 
 /**
- * This is the model class for table "blog_user".
+ * This is the model class for table "user".
  *
  * @property integer $user_id
  * @property string $name
  * @property string $username
- * @property string $passw
- * @property string $active
+ * @property string $password
+ * @property integer $active
  * @property string $access_token
  * @property string $auth_key
  */
@@ -46,7 +80,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public static function tableName()
     {
-        return 'blog_user';
+        return 'user';
     }
 
     /**
@@ -55,10 +89,11 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['active'], 'string'],
+            [['name', 'username', 'password'], 'required'],
+            [['active'], 'integer'],
             [['name'], 'string', 'max' => 50],
             [['username'], 'string', 'max' => 30],
-            [['passw', 'access_token', 'auth_key'], 'string', 'max' => 100],
+            [['password', 'access_token', 'auth_key'], 'string', 'max' => 100],
             [['username'], 'unique'],
         ];
     }
@@ -72,12 +107,13 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'user_id' => 'User ID',
             'name' => 'Name',
             'username' => 'Username',
-            'passw' => 'Password',
+            'password' => 'Password',
             'active' => 'Active',
             'access_token' => 'Access Token',
-            'auth_key' => 'Authentication Key',
+            'auth_key' => 'Auth Key',
         ];
     }
+    
     
     /**
      * Finds an identity by the given ID.
@@ -148,23 +184,26 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     }    
     
     /**
-     * Validates given password
+     * Validates a given password 
+     * @param type $password
+     * @return boolean true if the password is correct
      */
-    public function validatePassword($passw) {
-        return Yii::$app->getSecurity()->validatePassword($passw, $this->passw);
+    public function validatePassword($password) {
+        return Yii::$app->getSecurity()->validatePassword($password, $this->password);
     }
     
-}
+}                        
 </code>
-</pre>                
-                
-
+                </pre>        
+                <p>The auth_key field is used for cookie validation. And the findIdentityByAccessToken method may be used for RESTful application, but you will have to implement it anyway, even if it is a blank method.</p>
+                <p>More about user authentication can be found here: <a target="_blank" href="http://www.yiiframework.com/doc-2.0/guide-security-authentication.html#authentication">http://www.yiiframework.com/doc-2.0/guide-security-authentication.html#authentication</a></p>
+                <p>If everything went well, we will be able to authenticate to our application using ADMIN/ADMIN or DEMO/DEMO, uppercase only now.</p>
 
             </div>
+            
         </div>
 
-
-
     </div>
+    
 </div>
 
