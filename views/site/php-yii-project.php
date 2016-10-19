@@ -11,8 +11,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>PHP Yii Framework Project</h1>
-        <p>A sample project developed with PHP, Yii 2 Framework, MySQL Database & Bootstrap Framework.</p>
+        <h1>Yii2 Framework Tutorial</h1>
+        <p>Building a simple calendar with PHP, Yii2 Framework, Bootstrap.</p>
         
     </div>
 
@@ -21,8 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
             <div class="col-lg-12">
                 <h2>The Project</h2>
-                <p>A simple calendar developed with PHP, Yii 2 Framework, MySQL Database and Bootstrap. Create, update and delete events. View calendar in more than one format. Multi-user. </p>
-                <p><?= Html::a('Run Project', ['//calendar/event'], ['class' => 'btn btn-success']) ?></p>
+                <p>A simple application tutorial on Yii2 Framework. Database engine independent using migrations and DAO, testing using codeception with fixtures.</p>
+                <p><?= Html::a('Run Project', '/basic-calendar/web/index.php', ['class' => 'btn btn-success']) ?></p>
             </div>
         </div>
 

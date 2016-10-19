@@ -17,19 +17,19 @@ use yii\helpers\Html;
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Web Application</h2>
-                <p>A sample web application developed using Yii Framework.</p>
+                <h2>Yii2 Framework Tutorial</h2>
+                <p>Build a calendar application from the start using Yii2 Framework, Bootstrap, Codeception.</p>
                 <p><?= Html::a("Go to page &raquo;", array('site/php-yii', 'page'=>'project'), array('class'=>'btn btn-default')) ?></p>
             </div>
             <div class="col-lg-4">
-                <h2>RESTful API</h2>
-                <p>A RESTFul API developed with PHP and Yii Framework.</p>
-                <p><?= Html::a("Go to page &raquo;", array('site/restful'), array('class'=>'btn btn-default')) ?></p>
+                <h2>RESTful API Tutorial</h2>
+                <p>Building a RESTFul API with Yii2 Framework.</p>
+                <p><?= Html::a("Go to page &raquo;", array('site/rest', 'page'=>'project'), array('class'=>'btn btn-default')) ?></p>
             </div>
             <div class="col-lg-4">
                 <h2>Angular JS</h2>
                 <p>Sample web application developed with AngularJS.</p>
-                <p><?= Html::a("Go to page &raquo;", array('site/angular'), array('class'=>'btn btn-default')) ?></p>
+                <p><?= Html::a("Coming soon", 'javascript:void(0)', array('class'=>'btn btn-default', 'disabled' => 'disabled')) ?></p>
             </div>
         </div>
 

@@ -77,6 +77,16 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays specific page from the project rest-api
+     * @param string $page name of the page to show
+     * @return string
+     */
+    public function actionRest($page='project') 
+    {
+        return $this->render('rest-'.$page);
+    }
+    
+    /**
      * Login action.
      *
      * @return string
