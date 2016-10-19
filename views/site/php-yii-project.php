@@ -22,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-lg-12">
                 <h2>The Project</h2>
                 <p>A simple application tutorial on Yii2 Framework. Database engine independent using migrations and DAO, testing using codeception with fixtures.</p>
+                <p>The source code for this project can be found at <a target="_blank" href="https://github.com/MarcioNido/basic-calendar">https://github.com/MarcioNido/basic-calendar</a></p>
                 <p><?= Html::a('Run Project', '/basic-calendar/web/index.php', ['class' => 'btn btn-success']) ?></p>
             </div>
         </div>

@@ -22,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-lg-12">
                 <h2>The Project</h2>
                 <p>A RESTFul API with Yii2 Framework to retrieve and update data from the calendar. </p>
+                <p>The source code for this project can be found at <a target="_blank" href="https://github.com/MarcioNido/rest-api">https://github.com/MarcioNido/rest-api</a></p>
             </div>
         </div>
 
@@ -38,8 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::a("<h4>The Category Controller</h4><p>Category controller</p>", array('site/rest', 'page'=>'category-controller'), array('class'=>'list-group-item')); ?>
                     <?= Html::a("<h4>Configuring the URLs</h4>Making the changes necessary to enable pretty URL", array('site/rest', 'page'=>'pretty-url'), array('class' => 'list-group-item')); ?>
                     <?= Html::a("<h4>The Event Controller</h4><p>Event controller</p>", array('site/rest', 'page'=>'event-controller'), array('class'=>'list-group-item')); ?>
-                    <?= Html::a("<h4>Creating the API Tests</h4><p>Create API functional tests</p>", array('site/rest', 'page'=>'api-test'), array('class'=>'list-group-item')); ?>
-                    
+                    <?= Html::a("<h4>Configuring the API Tests</h4><p>API functional tests environment configuration</p>", array('site/rest', 'page'=>'api-test'), array('class'=>'list-group-item')); ?>
+                    <?= Html::a("<h4>Authentication</h4><p>User Authentication</p>", array('site/rest', 'page'=>'authentication'), array('class'=>'list-group-item')); ?>
                 </div>
             </div>
         </div>

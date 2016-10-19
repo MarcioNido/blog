@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
             <div class="col-lg-12">
                 
-                <h2>REST Creating the API Tests</h2>
+                <h2>REST Configuring the API Tests Environment</h2>
                 <p>Well, now things got a little tricky. Yii2 documentation about tests is not fully complete yet, and there are differences between the basic and advanced templates.</p>
                 <p>As in this project I used the basic template, I had to make some changes so I could use fixtures with the functional tests.</p>
                 <p>So, to test the REST API we will use codeception functional tests. First, we will have to edit the file @app/tests/codeception/functional.suite.yml:</p>
